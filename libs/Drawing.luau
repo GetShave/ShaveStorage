@@ -550,12 +550,7 @@ function DrawingLib.new(drawingType)
 end
 
 function DrawingFuncs.isrenderobj(drawingObj)
-	local success, isrenderobj = pcall(function()
-		local m = drawingObj:FindFirstAncestorOfClass("ScreenGui")
-		return m == drawingUI
-	end)
-	if not success then return false end
-	return isrenderobj
+	return drawingObj.Visible ~= nil and tostring(drawingObj) == "Drawing" -- lazy af hack
 end
 
 function DrawingFuncs.getrenderproperty(drawingObj, property)
