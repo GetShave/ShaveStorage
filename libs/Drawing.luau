@@ -550,7 +550,10 @@ function DrawingLib.new(drawingType)
 end
 
 function DrawingFuncs.isrenderobj(drawingObj)
-	return drawingObj.Visible ~= nil and tostring(drawingObj) == "Drawing" -- lazy af hack
+	local s, ret = pcall(function()
+		return drawingObj.Visible ~= nil and tostring(drawingObj) == "Drawing" -- lazy af hack
+	end)
+	return s and ret or false
 end
 
 function DrawingFuncs.getrenderproperty(drawingObj, property)
