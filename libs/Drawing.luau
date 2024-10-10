@@ -579,4 +579,4 @@ function DrawingFuncs.cleardrawcache()
 	end
 end
 
-return DrawingLib, DrawingFuncs
+return {DrawingLib, DrawingFuncs}
