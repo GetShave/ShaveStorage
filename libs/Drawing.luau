@@ -551,7 +551,8 @@ end
 
 function DrawingFuncs.isrenderobj(drawingObj)
 	local success, isrenderobj = pcall(function()
-		return drawingObj.Parent == drawingUI
+		local m = drawingObj:FindFirstAncestorOfClass("ScreenGui")
+		return m == drawingUI
 	end)
 	if not success then return false end
 	return isrenderobj
